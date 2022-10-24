@@ -35,31 +35,33 @@ class PageController extends Controller
     public function blog()
     {
 
-        return view('blog');
+        return view('blog')
+        ->with('titolo' ,'Il mio Blog');
+
     }
 
     public function family()
     {
-        /*
-        return view('family',
+    //metodo 1
+    return view('family',
     [
         'titolo'=>'La mia famiglia',
         'members'=>$this->data
     ]);
-
+//metodo 2
       return view('family')
       ->with('members' ,$this->data)
       ->with('titolo' ,'La mia famiglia');
 
-
-
+//metodo 3
       return view('family')
       ->withMembers($this->data)
       ->withTitolo('La mia famiglia');
-      */
+
+//metodo 4
       $members=$this->data;
       $titolo='La mia famiglia';
-      return view('family', compact('members','titolo'));
+      return view('family2', compact('members','titolo'));
     }
 
 
